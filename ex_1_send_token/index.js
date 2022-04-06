@@ -49,8 +49,14 @@ const sendTransaction = async (senderAddress, receiverAddress, amountToken, priv
 }
 
 
-const from = "0x9b500a4B354914d420c3D1497AEe4Ba9d45b7Df0"
-const fromPrivateKey = "7cac11ffdd602686f28e1b9bf8fd45008fb682ad75f58166bfb0ff08bb879573"
-const to = "0xDBA77eb478285ae2518056F785eF6190a2B3185C"
-const amount = "0.1"
-sendTransaction(from, to, amount, fromPrivateKey)
+const SENDER_ADDRESS = process.env.SENDER_ADDRESS
+const SENDER_PRIVATE_KEY = process.env.SENDER_PRIVATE_KEY
+const RECEIVER_ADDRESS = process.env.RECEIVER_ADDRESS
+const AMOUNT_ETH_TOKEN = process.env.AMOUNT_ETH_TOKEN
+
+sendTransaction(
+	SENDER_ADDRESS,
+	RECEIVER_ADDRESS,
+	AMOUNT_ETH_TOKEN,
+	SENDER_PRIVATE_KEY
+)
