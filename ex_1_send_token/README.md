@@ -3,6 +3,9 @@
 npm install
 ```
 ### Edit .env file
+```sh
+cp .env.example .env
+```
 - SENDER_ADDRESS: sender address
 - SENDER_PRIVATE_KEY: private key of sender address
 - RECEIVER_ADDRESS: receiver address
