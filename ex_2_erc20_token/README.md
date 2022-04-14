@@ -1,11 +1,16 @@
 # TOKEN SMART CONTRACT
 
+### Link contract 
+https://rinkeby.etherscan.io/address/0xBB1087A23cFDA180a3428181252AF333aA530B35
 
 ### Install dependency
 ```
 npm install
 ```
 ### Edit env
+```
+cp .env.example .env
+```
 -INFURA_API_KEY: Infura key
 -RINKEBY_PRIVATE_KEY: private key of account that owner of contract
 -ETHER_SCAN_API_KEY: etherscan api key to verify contract
