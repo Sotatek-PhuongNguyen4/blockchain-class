@@ -1,0 +1,32 @@
+{
+	"name": "ex_3_mid_term_nft_marketplace",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "npx hardhat test",
+		"compile": "npx hardhat compile",
+		"deploy": "npx hardhat run scripts/deploy.js --network rinkeby",
+		"deploy-nft": "npx hardhat run scripts/deploy-nft.js --network rinkeby",
+		"upgrade": "npx hardhat run scripts/upgrade.js --network rinkeby",
+		"clean": "npx hardhat clean",
+		"console": "npx hardhat console --network rinkeby"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@nomiclabs/hardhat-ethers": "^2.0.5",
+		"@nomiclabs/hardhat-etherscan": "^3.0.3",
+		"@nomiclabs/hardhat-waffle": "^2.0.3",
+		"@openzeppelin/hardhat-upgrades": "^1.17.0",
+		"chai": "^4.3.6",
+		"dotenv": "^16.0.0",
+		"ethereum-waffle": "^3.4.4",
+		"ethers": "^5.6.4",
+		"hardhat": "^2.9.3"
+	},
+	"dependencies": {
+		"@openzeppelin/contracts": "^4.5.0"
+	}
+}

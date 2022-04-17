@@ -1,0 +1,87 @@
+{
+  "manifestVersion": "3.2",
+  "admin": {
+    "address": "0xB2c0ba6643C212bda2A0d599456A7b1aCBCa97FB",
+    "txHash": "0x69d5e65da0b56a0c7e9046cd7359d219e9c47d2414ccda75ec8c278b33cc83df"
+  },
+  "proxies": [
+    {
+      "address": "0x0739fe3A7B3B0df7ffDD5997995718652ef9298E",
+      "txHash": "0x568d253a2541f7b0aa3da4258efae6809aab80c49dd0f8471113d23de630f0fe",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xA5e366dF5f86e57f973d02C3405bf206ed0711D6",
+      "txHash": "0xb6b8d6e108338aea81627987b0926fda7d3aa363da42311b73d01b532bb2b826",
+      "kind": "transparent"
+    }
+  ],
+  "impls": {
+    "dd020c19d24b46528126ed9ea26f48c2366bab6ef8373494fcc5890ac798bd3c": {
+      "address": "0xA8e58E4486669C5f9bdf54EA46ff6Ac556ef2003",
+      "txHash": "0x095f555a11a453807df237824ededf0e739502e643d69c1c1cabbadf24952c05",
+      "layout": {
+        "storage": [
+          {
+            "label": "name",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_string_storage",
+            "contract": "NFTMarketV1",
+            "src": "contracts\\NFTMarketV1.sol:5"
+          }
+        ],
+        "types": {
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          }
+        }
+      }
+    },
+    "fba9a594f3857a813d567d1340df56d58f9fb004213a752182bc8d62a97d1049": {
+      "address": "0x0aF2441A421724A85ec5C874b94D5b7345260233",
+      "txHash": "0xa371ef26bf863174feb128246888bd71bedf91720461297a3526df48ff90399b",
+      "layout": {
+        "storage": [
+          {
+            "label": "value",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256",
+            "contract": "NFTMarketV1",
+            "src": "contracts\\NFTMarketV1.sol:5"
+          }
+        ],
+        "types": {
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          }
+        }
+      }
+    },
+    "0aedba25433c1da524ec9e5321af10e2e35e94bb77ba8a96c2e8cec504e63adc": {
+      "address": "0xB527613F70223772383C486585849d362e8E3c20",
+      "txHash": "0xe59737d51709574f83352684389474c5e197900108da500eeff3510f867693c1",
+      "layout": {
+        "storage": [
+          {
+            "label": "value",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256",
+            "contract": "NFTMarketV2",
+            "src": "contracts\\NFTMarketV2.sol:5"
+          }
+        ],
+        "types": {
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          }
+        }
+      }
+    }
+  }
+}
