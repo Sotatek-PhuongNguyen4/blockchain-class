@@ -36,7 +36,7 @@ contract Token {
         balances[msg.sender] = totalSupply_;
         owner = msg.sender;
         treasury = treasury_;
-        balances[treasury] = 0;
+        balances[treasury];
         _name = name_;
         _symbol = symbol_;
         _decimals = decimals_;
@@ -91,8 +91,7 @@ contract Token {
      * the contract.
      */
     function transfer(address to, uint256 amount) external {
-        bool accountNotInBackList = backLists[msg.sender] == false || !backLists[msg.sender];
-        require(accountNotInBackList == true, "Account has been in blacklist cannot transfer");
+        require(!backLists[msg.sender], "Account has been in blacklist cannot transfer");
         // Check if the transaction sender has enough tokens.
         // If `require`'s first argument evaluates to `false` then the
         // transaction will revert.
