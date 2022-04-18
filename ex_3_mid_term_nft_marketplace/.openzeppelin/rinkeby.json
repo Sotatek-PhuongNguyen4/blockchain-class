@@ -14,6 +14,21 @@
       "address": "0xA5e366dF5f86e57f973d02C3405bf206ed0711D6",
       "txHash": "0xb6b8d6e108338aea81627987b0926fda7d3aa363da42311b73d01b532bb2b826",
       "kind": "transparent"
+    },
+    {
+      "address": "0x051d18F01Bd70F48FBa0ED5B92e9F0771C8E5A69",
+      "txHash": "0x651d4bc23ace356adab4f2041c4129b865329f24a9ffee36d2cdeaf7e1f6e74a",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xF56Aab29De4F2e37c4e5E8C46a47174b458fd576",
+      "txHash": "0xc2821a607a0c05dd39b5cd989db1aa1ee0ffd4429d757ffeab48be54b00ca20c",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xB0E08B65d48faE7AA83e75A0007731b2031e5251",
+      "txHash": "0x237566064614821dbddf4bd26e499bc71db634e7805e054ed5454f1219e1a3fe",
+      "kind": "transparent"
     }
   ],
   "impls": {
@@ -76,6 +91,210 @@
           }
         ],
         "types": {
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          }
+        }
+      }
+    },
+    "8717315481e8c338b10f136aafb3fbaddb06e0ffe3894fb50b8e3cf4e2667fb7": {
+      "address": "0xEB2C6fbEE5bdB943b02ad5648AEA673760de4CF5",
+      "txHash": "0x12f9758f6f6812167e49dfa2a6f0e1e715e4ec995323462a8b11def286d6975f",
+      "layout": {
+        "storage": [
+          {
+            "label": "countOrder",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256",
+            "contract": "NFTMarketV1",
+            "src": "contracts\\NFTMarketV1.sol:29"
+          },
+          {
+            "label": "listOrders",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_mapping(t_uint256,t_struct(Order)27_storage)",
+            "contract": "NFTMarketV1",
+            "src": "contracts\\NFTMarketV1.sol:30"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_mapping(t_uint256,t_struct(Order)27_storage)": {
+            "label": "mapping(uint256 => struct NFTMarketV1.Order)",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Order)27_storage": {
+            "label": "struct NFTMarketV1.Order",
+            "members": [
+              {
+                "label": "seller",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "collectionAddress",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "tokenID",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "price",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "3"
+              }
+            ],
+            "numberOfBytes": "128"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          }
+        }
+      }
+    },
+    "9e7782984cdd38f77a7457f37fabd7e8ebb7fd725d803c74c055b241970530ef": {
+      "address": "0x37DCae563d4E5530a988aB2db7D455BAB80aeb90",
+      "txHash": "0xac20907e7e710265263a937c7436315a9df458d655aba86df951d5770c7568d6",
+      "layout": {
+        "storage": [
+          {
+            "label": "countOrder",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256",
+            "contract": "NFTMarketV1",
+            "src": "contracts\\NFTMarketV1.sol:29"
+          },
+          {
+            "label": "listOrders",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_mapping(t_uint256,t_struct(Order)36_storage)",
+            "contract": "NFTMarketV1",
+            "src": "contracts\\NFTMarketV1.sol:30"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_mapping(t_uint256,t_struct(Order)36_storage)": {
+            "label": "mapping(uint256 => struct NFTMarketV1.Order)",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Order)36_storage": {
+            "label": "struct NFTMarketV1.Order",
+            "members": [
+              {
+                "label": "seller",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "collectionAddress",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "tokenID",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "price",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "3"
+              }
+            ],
+            "numberOfBytes": "128"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          }
+        }
+      }
+    },
+    "cd4cd60810ca290531694753b942d683ba838986cd38be07d336e120451abf31": {
+      "address": "0x6B86BD73284393d3d8571121ED43cA1B0e2d9963",
+      "txHash": "0x3e90158bdf37cf499a9ad7877ef459d5ae1d2c71bd696a61645e894b1e1efb6a",
+      "layout": {
+        "storage": [
+          {
+            "label": "countOrder",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256",
+            "contract": "NFTMarketV1",
+            "src": "contracts\\NFTMarketV1.sol:29"
+          },
+          {
+            "label": "listOrders",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_mapping(t_uint256,t_struct(Order)36_storage)",
+            "contract": "NFTMarketV1",
+            "src": "contracts\\NFTMarketV1.sol:30"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_mapping(t_uint256,t_struct(Order)36_storage)": {
+            "label": "mapping(uint256 => struct NFTMarketV1.Order)",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Order)36_storage": {
+            "label": "struct NFTMarketV1.Order",
+            "members": [
+              {
+                "label": "seller",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "collectionAddress",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "tokenID",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "price",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "3"
+              }
+            ],
+            "numberOfBytes": "128"
+          },
           "t_uint256": {
             "label": "uint256",
             "numberOfBytes": "32"

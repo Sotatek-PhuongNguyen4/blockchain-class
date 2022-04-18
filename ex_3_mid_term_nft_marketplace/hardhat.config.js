@@ -19,6 +19,8 @@ module.exports = {
 		rinkeby: {
 			url: `https://rinkeby.infura.io/v3/${INFURA_API_KEY}`,
 			accounts: [`${DEPLOYER_PRIVATE_KEY}`],
+			gas: 2100000,
+			gasPrice: 8000000000,
 		},
 	},
 	etherscan: {
