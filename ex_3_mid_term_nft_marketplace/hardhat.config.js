@@ -1,6 +1,7 @@
 require("@nomiclabs/hardhat-waffle")
 require("@nomiclabs/hardhat-etherscan")
 require("@openzeppelin/hardhat-upgrades")
+require("solidity-coverage")
 require("dotenv").config()
 
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY
@@ -21,6 +22,7 @@ module.exports = {
 			accounts: [`${DEPLOYER_PRIVATE_KEY}`],
 			gas: 2100000,
 			gasPrice: 8000000000,
+			chainId: 4,
 		},
 	},
 	etherscan: {

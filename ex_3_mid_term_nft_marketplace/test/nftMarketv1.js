@@ -1,22 +1,76 @@
 const { expect } = require("chai")
-const { ethers } = require("hardhat")
+const { BigNumber } = require("ethers")
+const { ethers, upgrades } = require("hardhat")
 
 let NFTMarketV1
 let nftMarketV1
+let MyNFT
+let myNFT
+let Token
+let token
+const metaDataURI =
+	"https://be.api.paceart.sotatek.works/api/v1/nfts/metadata/pace/31"
+const priceOrder = BigNumber.from("10000000000000").toBigInt()
 
 describe("NFTMarketV1", function () {
 	beforeEach(async () => {
 		NFTMarketV1 = await ethers.getContractFactory("NFTMarketV1")
-		nftMarketV1 = await NFTMarketV1.deploy()
-		await nftMarketV1.deployed()
+		nftMarketV1 = await upgrades.deployProxy(NFTMarketV1)
+
+		MyNFT = await ethers.getContractFactory("MyNFT")
+		myNFT = await MyNFT.deploy()
+		await myNFT.deployed()
+
+		Token = await ethers.getContractFactory("Token")
+		token = await Token.deploy(
+			"TESTTOKEN",
+			"TTT",
+			18,
+			BigInt("1000000000000000000000")
+		)
+		await token.deployed()
 	})
 
-	it("getValue returns a value when initialize", async function () {
-		const setValueTx = await nftMarketV1.initialize(200)
-
-		// wait until the transaction is mined
-		await setValueTx.wait()
-
-		expect(await nftMarketV1.getValue()).to.equal(200)
+	it("getCountOrder returns 0 when initialize", async function () {
+		expect(await nftMarketV1.getCountOrder()).to.equal(0)
 	})
+
+	it("add an order to market place", async function () {
+		const [owner] = await ethers.getSigners()
+
+		await myNFT.mintNFT(owner.address, metaDataURI)
+		await myNFT.setApprovalForAll(nftMarketV1.address, true)
+		await nftMarketV1.createOrder(
+			myNFT.address,
+			1,
+			token.address,
+			priceOrder
+		)
+		expect(await nftMarketV1.getCountOrder()).to.equal(1)
+	})
+
+	// it("add an order not NFT'owner to market place", async function () {
+	// 	const [owner, add1] = await ethers.getSigners()
+
+	// 	await myNFT.mintNFT(owner.address, metaDataURI)
+	// 	await myNFT.setApprovalForAll(nftMarketV1.address, true)
+	// 	await nftMarketV1
+	// 		.connect(add1)
+	// 		.createOrder(myNFT.address, 1, token.address, priceOrder)
+	// 	expect(await nftMarketV1.getCountOrder()).to.equal(0)
+	// })
+
+	// it("add an order not approve NFT to market place", async function () {
+	// 	const [owner, add1] = await ethers.getSigners()
+
+	// 	await myNFT.mintNFT(owner.address, metaDataURI)
+	// 	// await myNFT.setApprovalForAll(nftMarketV1.address, true)
+	// 	await nftMarketV1.createOrder(
+	// 		myNFT.address,
+	// 		1,
+	// 		token.address,
+	// 		priceOrder
+	// 	)
+	// 	expect(await nftMarketV1.getCountOrder()).to.equal(0)
+	// })
 })

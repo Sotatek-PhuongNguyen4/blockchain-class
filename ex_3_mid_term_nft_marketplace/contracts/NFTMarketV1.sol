@@ -13,7 +13,8 @@ contract NFTMarketV1 {
         address collectionAddress;   
         uint256 nftID;
         address tokenAddress;
-        uint256 price;   
+        uint256 price;  
+        bool existed; 
     }
 
     // Mapping from orderID to Order
@@ -32,7 +33,7 @@ contract NFTMarketV1 {
         // delegate call to transfer NFT to nftMarketplace
         IERC721(_collectionAddress).transferFrom(msg.sender, address(this), _nftID);
         // save order to blockchain
-        Order memory newOrder = Order(msg.sender, _collectionAddress, _nftID, _tokenAddress, _price);
+        Order memory newOrder = Order(msg.sender, _collectionAddress, _nftID, _tokenAddress, _price, true);
         listOrders[countOrder] = newOrder;
         countOrder++;
     }

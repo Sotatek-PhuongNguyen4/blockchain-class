@@ -1,15 +1,29 @@
-# Basic Sample Hardhat Project
+### NFT Marketplace
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+### Marketplace address: 0x5F8001A080E60913099cF1789619A36fb651A2AA
+### 721 Token addresS: 0x11adb3D685D380e3ab510CBf36Ee55dCe7ea2F2C
 
-Try running some of the following tasks:
-
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
+### Setup project
+```sh
+cp .env.example .env
+```
+### Edit env
+```sh
+npm install
+```
+### deploy marketplace
+```
+npm run deploy
+```
+### deploy nft
+```
+npm run deploy-nft
+```
+### upgrade
+```
+npm run upgrade
+```
+### test
+```
+npm run test
 ```

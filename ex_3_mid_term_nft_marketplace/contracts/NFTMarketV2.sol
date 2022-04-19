@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+
 interface IERC721 {
     function ownerOf(uint256 tokenId) external view returns (address owner);
     function isApprovedForAll(address owner, address operator) external view returns (bool);
@@ -13,13 +14,14 @@ interface IERC20 {
     function allowance(address owner, address spender) external view returns (uint256);
 }
 
-contract NFTMarketV1 {
+contract NFTMarketV2 {
     struct Order {
         address seller;
         address collectionAddress;   
         uint256 nftID;
         address tokenAddress;
-        uint256 price;   
+        uint256 price;  
+        bool existed;  
     }
 
     // Mapping from orderID to Order
@@ -40,21 +42,34 @@ contract NFTMarketV1 {
         // delegate call to transfer NFT to nftMarketplace
         IERC721(_collectionAddress).transferFrom(msg.sender, address(this), _nftID);
         // save order to blockchain
-        Order memory newOrder = Order(msg.sender, _collectionAddress, _nftID, _tokenAddress, _price);
+        Order memory newOrder = Order(msg.sender, _collectionAddress, _nftID, _tokenAddress, _price, true);
         listOrders[countOrder] = newOrder;
         countOrder++;
     }
 
-     function setTreasury(address _treasury) public {
+    function setTreasury(address _treasury) public {
         treasury = _treasury;
+    }
+
+    function getTreasury() view public returns (address){
+        return treasury;
     }
 
     function setFee(uint256 _fee) public {
         fee = _fee;
     }
 
-    function matchOrder(uint256 _orderId) public {
-        Order memory currentOrder = listOrders[_orderId];
+    function getFee() view public returns (uint256){
+        return fee;
+    }
+
+    function isOrderExists(uint256 key) public view returns (bool) {
+        return listOrders[key].existed;
+    }
+
+    function matchOrder(uint256 _orderId) public {   
+        require(isOrderExists(_orderId), "Order is not existing!");    
+        Order memory currentOrder = listOrders[_orderId];  
         // require approve token
         require(IERC20(currentOrder.tokenAddress).allowance(msg.sender, address(this)) != 0, 'Token have to approve for marketplace');
         // require balance of buyer have to greater than price of NFT
@@ -65,5 +80,7 @@ contract NFTMarketV1 {
         IERC20(currentOrder.tokenAddress).transferFrom(msg.sender, treasury, (currentOrder.price * (100 + fee) / 100));
         // transfer token from treasury to seller
         IERC20(currentOrder.tokenAddress).transferFrom(treasury, currentOrder.seller, (currentOrder.price * (100 - fee) / 100));
+        // order executed
+        listOrders[_orderId].existed = false;
     }
 }
