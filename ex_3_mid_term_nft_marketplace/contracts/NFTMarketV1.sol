@@ -27,7 +27,7 @@ contract NFTMarketV1 {
 
     function createOrder(address _collectionAddress, uint256 _nftID, address _tokenAddress, uint256 _price) public {
         // require owner of NFT
-        require(IERC721(_collectionAddress).ownerOf(_nftID) == msg.sender, "NFT only transfer by it's owner");
+        require(IERC721(_collectionAddress).ownerOf(_nftID) == msg.sender, "NFT only transfer by it owner");
         // require collection approved for proxy contract
         require(IERC721(_collectionAddress).isApprovedForAll(msg.sender, address(this)), "NFT have to approve for marketplace");
         // delegate call to transfer NFT to nftMarketplace

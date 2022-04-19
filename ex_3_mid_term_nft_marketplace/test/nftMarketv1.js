@@ -49,28 +49,25 @@ describe("NFTMarketV1", function () {
 		expect(await nftMarketV1.getCountOrder()).to.equal(1)
 	})
 
-	// it("add an order not NFT'owner to market place", async function () {
-	// 	const [owner, add1] = await ethers.getSigners()
+	it("add an order not NFT'owner to market place", async function () {
+		const [owner, add1] = await ethers.getSigners()
 
-	// 	await myNFT.mintNFT(owner.address, metaDataURI)
-	// 	await myNFT.setApprovalForAll(nftMarketV1.address, true)
-	// 	await nftMarketV1
-	// 		.connect(add1)
-	// 		.createOrder(myNFT.address, 1, token.address, priceOrder)
-	// 	expect(await nftMarketV1.getCountOrder()).to.equal(0)
-	// })
+		await myNFT.mintNFT(owner.address, metaDataURI)
+		await myNFT.setApprovalForAll(nftMarketV1.address, true)
+		await expect(
+			nftMarketV1
+				.connect(add1)
+				.createOrder(myNFT.address, 1, token.address, priceOrder)
+		).to.be.reverted
+	})
 
-	// it("add an order not approve NFT to market place", async function () {
-	// 	const [owner, add1] = await ethers.getSigners()
+	it("add an order not approve NFT to market place", async function () {
+		const [owner] = await ethers.getSigners()
 
-	// 	await myNFT.mintNFT(owner.address, metaDataURI)
-	// 	// await myNFT.setApprovalForAll(nftMarketV1.address, true)
-	// 	await nftMarketV1.createOrder(
-	// 		myNFT.address,
-	// 		1,
-	// 		token.address,
-	// 		priceOrder
-	// 	)
-	// 	expect(await nftMarketV1.getCountOrder()).to.equal(0)
-	// })
+		await myNFT.mintNFT(owner.address, metaDataURI)
+		await myNFT.setApprovalForAll(nftMarketV1.address, false)
+		await expect(
+			nftMarketV1.createOrder(myNFT.address, 1, token.address, priceOrder)
+		).to.be.reverted
+	})
 })

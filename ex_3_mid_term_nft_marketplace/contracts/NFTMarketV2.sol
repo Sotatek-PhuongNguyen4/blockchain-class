@@ -73,7 +73,7 @@ contract NFTMarketV2 {
         // require approve token
         require(IERC20(currentOrder.tokenAddress).allowance(msg.sender, address(this)) != 0, 'Token have to approve for marketplace');
         // require balance of buyer have to greater than price of NFT
-        require(IERC20(currentOrder.tokenAddress).balanceOf(msg.sender) >= currentOrder.price, "Buyer's balance have to greater than or equal nft'price");
+        require(IERC20(currentOrder.tokenAddress).balanceOf(msg.sender) >= (currentOrder.price * (100 + fee) / 100), "Buyer's balance is not enough");
         // transfer NFT to buyer
         IERC721(currentOrder.collectionAddress).transferFrom(address(this), msg.sender, currentOrder.nftID);
         // tranfer token from buyer to treasury
