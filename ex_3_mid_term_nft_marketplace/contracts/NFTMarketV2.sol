@@ -34,9 +34,9 @@ contract NFTMarketV2 {
         return countOrder;
     } 
 
-    function createOrder(address _collectionAddress, uint256 _nftID, address _tokenAddress, uint256 _price) public {
+    function createOrder(address _collectionAddress, uint256 _nftID, address _tokenAddress, uint256 _price) public returns(uint256) {
         // require owner of NFT
-        require(IERC721(_collectionAddress).ownerOf(_nftID) == msg.sender, "NFT only transfer by it's owner");
+        require(IERC721(_collectionAddress).ownerOf(_nftID) == msg.sender, "NFT only transfer by it owner");
         // require collection approved for proxy contract
         require(IERC721(_collectionAddress).isApprovedForAll(msg.sender, address(this)), "NFT have to approve for marketplace");
         // delegate call to transfer NFT to nftMarketplace
@@ -45,6 +45,7 @@ contract NFTMarketV2 {
         Order memory newOrder = Order(msg.sender, _collectionAddress, _nftID, _tokenAddress, _price, true);
         listOrders[countOrder] = newOrder;
         countOrder++;
+        return  countOrder - 1;
     }
 
     function setTreasury(address _treasury) public {

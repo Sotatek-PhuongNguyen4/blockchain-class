@@ -11,6 +11,8 @@ let token
 const metaDataURI =
 	"https://be.api.paceart.sotatek.works/api/v1/nfts/metadata/pace/31"
 const priceOrder = BigNumber.from("10000000000000").toBigInt()
+const balanceBuyer = BigNumber.from("1000000000000").toBigInt()
+const totalSupplyMinted = BigNumber.from("200000000000000").toBigInt()
 
 describe("NFTMarketV1", function () {
 	beforeEach(async () => {
@@ -69,5 +71,67 @@ describe("NFTMarketV1", function () {
 		await expect(
 			nftMarketV1.createOrder(myNFT.address, 1, token.address, priceOrder)
 		).to.be.reverted
+	})
+
+	it("match an order not existing", async function () {
+		await expect(nftMarketV1.matchOrder(0)).to.be.reverted
+	})
+
+	it("match an order marketplace not approve token erc20", async function () {
+		const [owner, buyer] = await ethers.getSigners()
+		await myNFT.mintNFT(owner.address, metaDataURI)
+		await myNFT.setApprovalForAll(nftMarketV1.address, true)
+		await nftMarketV1.createOrder(
+			myNFT.address,
+			1,
+			token.address,
+			priceOrder
+		)
+
+		await token.mint(buyer.address, totalSupplyMinted)
+
+		await expect(nftMarketV1.connect(buyer).matchOrder(0)).to.be.reverted
+	})
+
+	it("match an order buyer not enough token erc20", async function () {
+		const [owner, buyer] = await ethers.getSigners()
+		await myNFT.mintNFT(owner.address, metaDataURI)
+		await myNFT.setApprovalForAll(nftMarketV1.address, true)
+		await nftMarketV1.createOrder(
+			myNFT.address,
+			1,
+			token.address,
+			priceOrder
+		)
+
+		await token.mint(buyer.address, balanceBuyer)
+
+		await token
+			.connect(buyer)
+			.approve(nftMarketV1.address, totalSupplyMinted)
+
+		await expect(nftMarketV1.connect(buyer).matchOrder(0)).to.be.reverted
+	})
+
+	it("test match an order", async function () {
+		const [owner, buyer] = await ethers.getSigners()
+		await myNFT.mintNFT(owner.address, metaDataURI)
+		await myNFT.setApprovalForAll(nftMarketV1.address, true)
+		await nftMarketV1.createOrder(
+			myNFT.address,
+			1,
+			token.address,
+			priceOrder
+		)
+
+		await token.mint(buyer.address, totalSupplyMinted)
+
+		await token
+			.connect(buyer)
+			.approve(nftMarketV1.address, totalSupplyMinted)
+
+		await nftMarketV1.connect(buyer).matchOrder(0)
+
+		expect(await nftMarketV1.isOrderExists(0)).to.equal(false)
 	})
 })

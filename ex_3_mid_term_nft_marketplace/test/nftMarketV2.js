@@ -46,10 +46,6 @@ describe("NFTMarketV2", function () {
 		expect(await nftMarketV2.getCountOrder()).to.equal(0)
 	})
 
-	it("getCountOrder returns 0 when initialize", async function () {
-		expect(await nftMarketV2.getCountOrder()).to.equal(0)
-	})
-
 	it("test set and get fee", async function () {
 		await nftMarketV2.setFee(10)
 		expect(await nftMarketV2.getFee()).to.equal(10)
@@ -141,7 +137,7 @@ describe("NFTMarketV2", function () {
 		await expect(nftMarketV2.matchOrder(0)).to.be.reverted
 	})
 
-	it("match an order treasury not approve token erc20", async function () {
+	it("match an order marketplace not approve token erc20", async function () {
 		const [owner, treasury, buyer] = await ethers.getSigners()
 		await myNFT.mintNFT(owner.address, metaDataURI)
 		await myNFT.setApprovalForAll(nftMarketV2.address, true)
@@ -160,7 +156,7 @@ describe("NFTMarketV2", function () {
 		await expect(nftMarketV2.connect(buyer).matchOrder(0)).to.be.reverted
 	})
 
-	it("match an order buyer not approve token erc20", async function () {
+	it("match an order buyer not enough token erc20", async function () {
 		const [owner, treasury, buyer] = await ethers.getSigners()
 		await myNFT.mintNFT(owner.address, metaDataURI)
 		await myNFT.setApprovalForAll(nftMarketV2.address, true)

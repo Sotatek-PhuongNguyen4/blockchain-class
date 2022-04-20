@@ -39,6 +39,11 @@
       "address": "0x5F8001A080E60913099cF1789619A36fb651A2AA",
       "txHash": "0x403ef490c895914b8867f5e358990663547d0bebe35e69078db67b6e0bce97aa",
       "kind": "transparent"
+    },
+    {
+      "address": "0xBd1D990d0bA786DCeDA4c8fa2d1EFe7029C07A33",
+      "txHash": "0xa8fee8b5b3fef7d5860404eeaeb494d8ec7d382d04a25f84839818576cb2b3bb",
+      "kind": "transparent"
     }
   ],
   "impls": {
@@ -448,6 +453,190 @@
             "numberOfBytes": "32"
           },
           "t_struct(Order)200_storage": {
+            "label": "struct NFTMarketV2.Order",
+            "members": [
+              {
+                "label": "seller",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "collectionAddress",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "nftID",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "tokenAddress",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "price",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              },
+              {
+                "label": "existed",
+                "type": "t_bool",
+                "offset": 0,
+                "slot": "5"
+              }
+            ],
+            "numberOfBytes": "192"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          }
+        }
+      }
+    },
+    "f3dbe507b7710433840f2d8019f17bcd20595232f39bff95984686f6e16f25ad": {
+      "address": "0xD8967E26ABB842E847Da6272AACF33C5Fa3968F9",
+      "txHash": "0xd6b4cd49e00dfc81351541c35244a927ca3b5c9b89a0e9f00571ef758d1545c9",
+      "layout": {
+        "storage": [
+          {
+            "label": "countOrder",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256",
+            "contract": "NFTMarketV1",
+            "src": "contracts\\NFTMarketV1.sol:27"
+          },
+          {
+            "label": "listOrders",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_mapping(t_uint256,t_struct(Order)68_storage)",
+            "contract": "NFTMarketV1",
+            "src": "contracts\\NFTMarketV1.sol:28"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_mapping(t_uint256,t_struct(Order)68_storage)": {
+            "label": "mapping(uint256 => struct NFTMarketV1.Order)",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Order)68_storage": {
+            "label": "struct NFTMarketV1.Order",
+            "members": [
+              {
+                "label": "seller",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "collectionAddress",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "nftID",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "tokenAddress",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "price",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              },
+              {
+                "label": "existed",
+                "type": "t_bool",
+                "offset": 0,
+                "slot": "5"
+              }
+            ],
+            "numberOfBytes": "192"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          }
+        }
+      }
+    },
+    "c15a5a11e715cec2d1f329f569b7f1c5d57455f983fe46c257bb791c77ca766e": {
+      "address": "0xCB3D4C930e29a79C7b04AA0A95ec578447CF81da",
+      "txHash": "0x6153cb399445958d50bf0f57a5fb616b92187583ab726d132531582ad6943f8d",
+      "layout": {
+        "storage": [
+          {
+            "label": "countOrder",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256",
+            "contract": "NFTMarketV2",
+            "src": "contracts\\NFTMarketV2.sol:28"
+          },
+          {
+            "label": "listOrders",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_mapping(t_uint256,t_struct(Order)2176_storage)",
+            "contract": "NFTMarketV2",
+            "src": "contracts\\NFTMarketV2.sol:29"
+          },
+          {
+            "label": "treasury",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_address",
+            "contract": "NFTMarketV2",
+            "src": "contracts\\NFTMarketV2.sol:30"
+          },
+          {
+            "label": "fee",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256",
+            "contract": "NFTMarketV2",
+            "src": "contracts\\NFTMarketV2.sol:31"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_mapping(t_uint256,t_struct(Order)2176_storage)": {
+            "label": "mapping(uint256 => struct NFTMarketV2.Order)",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Order)2176_storage": {
             "label": "struct NFTMarketV2.Order",
             "members": [
               {
