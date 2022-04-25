@@ -82,7 +82,7 @@ contract Token is SafeMath {
         _;
     }
 
-    function mint(address account, uint amount) public onlyOwner {
+    function mint(address account, uint amount) public virtual onlyOwner {
         require(account != address(0), "ERC20: mint to the zero address");
         balances[account] += amount;
         totalSupply += amount;

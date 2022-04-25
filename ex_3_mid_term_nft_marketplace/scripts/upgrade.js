@@ -7,9 +7,9 @@ console.log(PROXY_ADDRESS)
 
 async function main() {
 	// // // Upgrade
-	const NFTMarketV2 = await ethers.getContractFactory("NFTMarketV2")
-	const nftMarketV2 = await upgrades.upgradeProxy(PROXY_ADDRESS, NFTMarketV2)
-	console.log("NFT Marketplace upgraded ", nftMarketV2.address)
+	const NFTMarketV3 = await ethers.getContractFactory("NFTMarketV3")
+	const nftMarketV3 = await upgrades.upgradeProxy(PROXY_ADDRESS, NFTMarketV3)
+	console.log("NFT Marketplace upgraded ", nftMarketV3.address)
 }
 
 main()

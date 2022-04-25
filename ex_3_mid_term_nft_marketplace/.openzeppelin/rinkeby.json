@@ -602,7 +602,7 @@
             "label": "listOrders",
             "offset": 0,
             "slot": "1",
-            "type": "t_mapping(t_uint256,t_struct(Order)2176_storage)",
+            "type": "t_mapping(t_uint256,t_struct(Order)2281_storage)",
             "contract": "NFTMarketV2",
             "src": "contracts\\NFTMarketV2.sol:29"
           },
@@ -632,12 +632,198 @@
             "label": "bool",
             "numberOfBytes": "1"
           },
-          "t_mapping(t_uint256,t_struct(Order)2176_storage)": {
+          "t_mapping(t_uint256,t_struct(Order)2281_storage)": {
             "label": "mapping(uint256 => struct NFTMarketV2.Order)",
             "numberOfBytes": "32"
           },
-          "t_struct(Order)2176_storage": {
+          "t_struct(Order)2281_storage": {
             "label": "struct NFTMarketV2.Order",
+            "members": [
+              {
+                "label": "seller",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "collectionAddress",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "nftID",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "tokenAddress",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "price",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              },
+              {
+                "label": "existed",
+                "type": "t_bool",
+                "offset": 0,
+                "slot": "5"
+              }
+            ],
+            "numberOfBytes": "192"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          }
+        }
+      }
+    },
+    "3752ecdb3efec23ebfd7c8dd8586761c74d4ad47c0bed7ab204eaaa7bc5b1fd7": {
+      "address": "0xf4fA628C70e6e5d53D3556544b81D3A67A203ac6",
+      "txHash": "0x07b81e081b3190c87d7d55e67fc2a02ae3bb1290c0cc1a7e0f38e999daacd1d1",
+      "layout": {
+        "storage": [
+          {
+            "label": "countOrder",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256",
+            "contract": "NFTMarketV3",
+            "src": "contracts\\NFTMarketV3.sol:31"
+          },
+          {
+            "label": "listOrders",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_mapping(t_uint256,t_struct(Order)210_storage)",
+            "contract": "NFTMarketV3",
+            "src": "contracts\\NFTMarketV3.sol:32"
+          },
+          {
+            "label": "treasury",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_address",
+            "contract": "NFTMarketV3",
+            "src": "contracts\\NFTMarketV3.sol:33"
+          },
+          {
+            "label": "fee",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256",
+            "contract": "NFTMarketV3",
+            "src": "contracts\\NFTMarketV3.sol:34"
+          },
+          {
+            "label": "_owner",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_address",
+            "contract": "NFTMarketV3",
+            "src": "contracts\\NFTMarketV3.sol:37"
+          },
+          {
+            "label": "collateralCounter",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_uint256",
+            "contract": "NFTMarketV3",
+            "src": "contracts\\NFTMarketV3.sol:46"
+          },
+          {
+            "label": "listNFTCollaterals",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_mapping(t_uint256,t_struct(NFTCollateral)236_storage)",
+            "contract": "NFTMarketV3",
+            "src": "contracts\\NFTMarketV3.sol:47"
+          },
+          {
+            "label": "baseAPRPrice",
+            "offset": 0,
+            "slot": "7",
+            "type": "t_uint256",
+            "contract": "NFTMarketV3",
+            "src": "contracts\\NFTMarketV3.sol:48"
+          },
+          {
+            "label": "rewardsToken",
+            "offset": 0,
+            "slot": "8",
+            "type": "t_address",
+            "contract": "NFTMarketV3",
+            "src": "contracts\\NFTMarketV3.sol:49"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_mapping(t_uint256,t_struct(NFTCollateral)236_storage)": {
+            "label": "mapping(uint256 => struct NFTMarketV3.NFTCollateral)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_struct(Order)210_storage)": {
+            "label": "mapping(uint256 => struct NFTMarketV3.Order)",
+            "numberOfBytes": "32"
+          },
+          "t_struct(NFTCollateral)236_storage": {
+            "label": "struct NFTMarketV3.NFTCollateral",
+            "members": [
+              {
+                "label": "owner",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "collectionAddress",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "nftID",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "hashrate",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "lastStakingTime",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              },
+              {
+                "label": "isStaking",
+                "type": "t_bool",
+                "offset": 0,
+                "slot": "5"
+              }
+            ],
+            "numberOfBytes": "192"
+          },
+          "t_struct(Order)210_storage": {
+            "label": "struct NFTMarketV3.Order",
             "members": [
               {
                 "label": "seller",

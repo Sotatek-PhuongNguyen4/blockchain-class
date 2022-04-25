@@ -376,6 +376,51 @@
       "kind": "transparent"
     },
     {
+      "address": "0x8A93d247134d91e0de6f96547cB0204e5BE8e5D8",
+      "txHash": "0x06665c28c918520f92ce637e7cf7d3fc30eb88b225b0e2b827537474058d9cb7",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x6F6f570F45833E249e27022648a26F4076F48f78",
+      "txHash": "0xa0f6d15441540c2d72aac5097eff962977703101cc3195810d2f38ef49d2a307",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x19cEcCd6942ad38562Ee10bAfd44776ceB67e923",
+      "txHash": "0x4de6346e831610766d9ec1591b23f7b49b3fcd74ce0446af9b25cf4043a1a9ae",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x638A246F0Ec8883eF68280293FFE8Cfbabe61B44",
+      "txHash": "0x391fb47a31fc8807bb7a32f35b4fa3ff267871cc36288257450d0743c2a1124c",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x40a42Baf86Fc821f972Ad2aC878729063CeEF403",
+      "txHash": "0x7cc25c1f973320f3701dc5935bb91b1bf808da555d09f72c55bd64f4ea8c4898",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xB377a2EeD7566Ac9fCb0BA673604F9BF875e2Bab",
+      "txHash": "0x4540e0ee3fbcf475af087eef2da7d7f6b2ddf9545f4b19b8ea259be33eb3d1ef",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x821f3361D454cc98b7555221A06Be563a7E2E0A6",
+      "txHash": "0xea8c836516799e25fb9198316e12002820fc95e1cc4aeed00ef875a72f8b9d32",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x63fea6E447F120B8Faf85B53cdaD8348e645D80E",
+      "txHash": "0xf7d01351beae56c621032da2703544d731ce54b1f0686e04c98de2ef25e94595",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x3904b8f5b0F49cD206b7d5AABeE5D1F37eE15D8d",
+      "txHash": "0x6489b862d9c214fb16fced434a0df40659eeba2275cf214b5a04620ab8e90e81",
+      "kind": "transparent"
+    },
+    {
       "address": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
       "txHash": "0x4cc922c16ffd38e5c4cede0e167df45618024bcff6756ba019334573ba26bc0f",
       "kind": "transparent"
@@ -468,6 +513,81 @@
     {
       "address": "0x3347B4d90ebe72BeFb30444C9966B2B990aE9FcB",
       "txHash": "0xad48c12b5035af080765a0da68520a52a58dfef55ffcd5517d06b5ae8fd011a9",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x38a024C0b412B9d1db8BC398140D00F5Af3093D4",
+      "txHash": "0x7ae43e4bd9a13037b7e28cc1a7709908d8789e1e41f21488a6980a61f0447a25",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x40918Ba7f132E0aCba2CE4de4c4baF9BD2D7D849",
+      "txHash": "0xbea326011d9b94ffe6f83818b23ee12f0ec09cc4be53b0e11253e2ff780efb1c",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xB0f05d25e41FbC2b52013099ED9616f1206Ae21B",
+      "txHash": "0x4bea1ad32b3e9237e82219b612f5a0cd62fe42dc8cdbdbee8d8ddf4aa8ee160f",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x927b167526bAbB9be047421db732C663a0b77B11",
+      "txHash": "0x209c9b6b3c9af721359eddf682367d59c0becd6b0f7178b3a5ec6017be9e60b1",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x5302E909d1e93e30F05B5D6Eea766363D14F9892",
+      "txHash": "0xe024c7abf737977e5800c44385914ef73a108a78cdb3b5ad627b440c6190ecfe",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x870526b7973b56163a6997bB7C886F5E4EA53638",
+      "txHash": "0xfce3a118a7f8dc3f9e5fe01be8908833ed37a916431e8e2e04634fccac4e1569",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x70bDA08DBe07363968e9EE53d899dFE48560605B",
+      "txHash": "0x1962ae518436644799579cdc38ed0ddf25effba79ab1e740595a0f028677be98",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xAD523115cd35a8d4E60B3C0953E0E0ac10418309",
+      "txHash": "0x58815769c86170b8bdd5cbb53270ba7d5468ec27dcb098337728d0eb13b700f8",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x71089Ba41e478702e1904692385Be3972B2cBf9e",
+      "txHash": "0xd03d504cb47e9bc89cdc360c2b8022ca175bd38fdf3a643f916bd254e7989af9",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x9BcC604D4381C5b0Ad12Ff3Bf32bEdE063416BC7",
+      "txHash": "0x3a140efb3311480be617904227e28f66740a2431b3f5878e648a451cd2d9894a",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x071586BA1b380B00B793Cc336fe01106B0BFbE6D",
+      "txHash": "0x248c2d0bd668e86c4602c2d3960e0a5b65c7e1406874af8fd9d254a78cf9ffb0",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xAdE429ba898c34722e722415D722A70a297cE3a2",
+      "txHash": "0xad45b3d4aad64fb60ccecb0f8df93fc9561066cd423aaeea7d57da9f2d396a06",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x51C65cd0Cdb1A8A8b79dfc2eE965B1bA0bb8fc89",
+      "txHash": "0x5265ef9382f0c93e6389ae88e0a8c69d0ea30ccdaf705b3b41e69e30ec0ebed2",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x70eE76691Bdd9696552AF8d4fd634b3cF79DD529",
+      "txHash": "0x1da1eced927fbde557f5f5543820b7c5b90d4b2a2f10409c6ae37ed4f4dd2b82",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xcD0048A5628B37B8f743cC2FeA18817A29e97270",
+      "txHash": "0x73020f2f08b15b06ad54d7befe7a5a60d0084ab4c10d4c2becb9b354255b0429",
       "kind": "transparent"
     }
   ],
@@ -611,7 +731,7 @@
             "label": "listOrders",
             "offset": 0,
             "slot": "1",
-            "type": "t_mapping(t_uint256,t_struct(Order)80_storage)",
+            "type": "t_mapping(t_uint256,t_struct(Order)2086_storage)",
             "contract": "NFTMarketV1",
             "src": "contracts\\NFTMarketV1.sol:32"
           }
@@ -625,11 +745,11 @@
             "label": "bool",
             "numberOfBytes": "1"
           },
-          "t_mapping(t_uint256,t_struct(Order)80_storage)": {
+          "t_mapping(t_uint256,t_struct(Order)2086_storage)": {
             "label": "mapping(uint256 => struct NFTMarketV1.Order)",
             "numberOfBytes": "32"
           },
-          "t_struct(Order)80_storage": {
+          "t_struct(Order)2086_storage": {
             "label": "struct NFTMarketV1.Order",
             "members": [
               {
@@ -695,7 +815,7 @@
             "label": "listOrders",
             "offset": 0,
             "slot": "1",
-            "type": "t_mapping(t_uint256,t_struct(Order)80_storage)",
+            "type": "t_mapping(t_uint256,t_struct(Order)2545_storage)",
             "contract": "NFTMarketV2",
             "src": "contracts\\NFTMarketV2.sol:33"
           },
@@ -725,12 +845,198 @@
             "label": "bool",
             "numberOfBytes": "1"
           },
-          "t_mapping(t_uint256,t_struct(Order)80_storage)": {
+          "t_mapping(t_uint256,t_struct(Order)2545_storage)": {
             "label": "mapping(uint256 => struct NFTMarketV2.Order)",
             "numberOfBytes": "32"
           },
-          "t_struct(Order)80_storage": {
+          "t_struct(Order)2545_storage": {
             "label": "struct NFTMarketV2.Order",
+            "members": [
+              {
+                "label": "seller",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "collectionAddress",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "nftID",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "tokenAddress",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "price",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              },
+              {
+                "label": "existed",
+                "type": "t_bool",
+                "offset": 0,
+                "slot": "5"
+              }
+            ],
+            "numberOfBytes": "192"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          }
+        }
+      }
+    },
+    "70500b2e55770b5d2018f0a4c4729c3f7197a3af3f99bf425718576aa79df9c8": {
+      "address": "0x5fc748f1FEb28d7b76fa1c6B07D8ba2d5535177c",
+      "txHash": "0x6ec3378d7e5fadba34a9d47cb087f67490f403c6609f146185c04f10d6843d72",
+      "layout": {
+        "storage": [
+          {
+            "label": "countOrder",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256",
+            "contract": "NFTMarketV3",
+            "src": "contracts\\NFTMarketV3.sol:35"
+          },
+          {
+            "label": "listOrders",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_mapping(t_uint256,t_struct(Order)222_storage)",
+            "contract": "NFTMarketV3",
+            "src": "contracts\\NFTMarketV3.sol:36"
+          },
+          {
+            "label": "treasury",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_address",
+            "contract": "NFTMarketV3",
+            "src": "contracts\\NFTMarketV3.sol:37"
+          },
+          {
+            "label": "fee",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256",
+            "contract": "NFTMarketV3",
+            "src": "contracts\\NFTMarketV3.sol:38"
+          },
+          {
+            "label": "_owner",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_address",
+            "contract": "NFTMarketV3",
+            "src": "contracts\\NFTMarketV3.sol:41"
+          },
+          {
+            "label": "collateralCounter",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_uint256",
+            "contract": "NFTMarketV3",
+            "src": "contracts\\NFTMarketV3.sol:50"
+          },
+          {
+            "label": "listNFTCollaterals",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_mapping(t_uint256,t_struct(NFTCollateral)248_storage)",
+            "contract": "NFTMarketV3",
+            "src": "contracts\\NFTMarketV3.sol:51"
+          },
+          {
+            "label": "baseAPRPrice",
+            "offset": 0,
+            "slot": "7",
+            "type": "t_uint256",
+            "contract": "NFTMarketV3",
+            "src": "contracts\\NFTMarketV3.sol:52"
+          },
+          {
+            "label": "rewardsToken",
+            "offset": 0,
+            "slot": "8",
+            "type": "t_address",
+            "contract": "NFTMarketV3",
+            "src": "contracts\\NFTMarketV3.sol:53"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_mapping(t_uint256,t_struct(NFTCollateral)248_storage)": {
+            "label": "mapping(uint256 => struct NFTMarketV3.NFTCollateral)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_struct(Order)222_storage)": {
+            "label": "mapping(uint256 => struct NFTMarketV3.Order)",
+            "numberOfBytes": "32"
+          },
+          "t_struct(NFTCollateral)248_storage": {
+            "label": "struct NFTMarketV3.NFTCollateral",
+            "members": [
+              {
+                "label": "owner",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "collectionAddress",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "nftID",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "hashrate",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "lastStakingTime",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              },
+              {
+                "label": "isStaking",
+                "type": "t_bool",
+                "offset": 0,
+                "slot": "5"
+              }
+            ],
+            "numberOfBytes": "192"
+          },
+          "t_struct(Order)222_storage": {
+            "label": "struct NFTMarketV3.Order",
             "members": [
               {
                 "label": "seller",
