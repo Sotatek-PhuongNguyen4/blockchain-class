@@ -1,6 +1,6 @@
 ### NFT Marketplace
 ### result
-![alt text](https://github.com/Sotatek-PhuongNguyen4/blockchain-class/blob/master/ex_3_mid_term_nft_marketplace/result-2.png?raw=true)
+![alt text](https://github.com/Sotatek-PhuongNguyen4/blockchain-class/blob/master/ex_3_4_mid_final_term/result-2.png?raw=true)
 
 ### Proxy address
 https://rinkeby.etherscan.io/address/0xBd1D990d0bA786DCeDA4c8fa2d1EFe7029C07A33
