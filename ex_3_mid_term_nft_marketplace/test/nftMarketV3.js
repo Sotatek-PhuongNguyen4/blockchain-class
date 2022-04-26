@@ -10,6 +10,8 @@ let MyNFT
 let myNFT
 let Token
 let token
+let TokenStake
+let tokenStake
 const metaDataURI =
 	"https://be.api.paceart.sotatek.works/api/v1/nfts/metadata/pace/31"
 const priceOrder = BigNumber.from("10000000000000").toBigInt()
@@ -42,13 +44,14 @@ describe("NFTMarketV3", function () {
 		await token.deployed()
 
 		TokenStake = await ethers.getContractFactory("TokenStake")
-		tokenStake = await Token.deploy(
+		tokenStake = await TokenStake.deploy(
 			"STAKETOKEN",
 			"STT",
 			18,
 			BigInt("1000000000000000000000")
 		)
 		await tokenStake.deployed()
+		await tokenStake.setToMintable(nftMarketV3.address)
 	})
 
 	it("getCountOrder returns 0 when initialize", async function () {
@@ -212,9 +215,120 @@ describe("NFTMarketV3", function () {
 		const [owner] = await ethers.getSigners()
 		await myNFT.mintNFT(owner.address, metaDataURI)
 		await nftMarketV3.listAsCollateral(myNFT.address, 1)
+		await nftMarketV3.setOwner(owner.address)
 
-		await nftMarketV3.setHashrate(0, 10)
+		await nftMarketV3.setHashrate(0, 15)
+		expect((await nftMarketV3.getNFTCollateral(0)).hashrate).to.equal(15)
+	})
 
-		// expect((await nftMarketV3.getNFTCollateral(0)).hashrate).to.equal(10)
+	it("test set hashrate not owner", async function () {
+		const [owner, add] = await ethers.getSigners()
+		await myNFT.mintNFT(owner.address, metaDataURI)
+		await nftMarketV3.listAsCollateral(myNFT.address, 1)
+		await nftMarketV3.setOwner(owner.address)
+
+		await expect(nftMarketV3.connect(add).setHashrate(0, 15)).to.be.reverted
+	})
+
+	it("test set nagative hashrate for collateral ID", async function () {
+		const [owner] = await ethers.getSigners()
+		await myNFT.mintNFT(owner.address, metaDataURI)
+		await nftMarketV3.listAsCollateral(myNFT.address, 1)
+		await nftMarketV3.setOwner(owner.address)
+
+		await expect(nftMarketV3.setHashrate(0, -1)).to.be.reverted
+	})
+
+	it("test set base price for collateral ID", async function () {
+		const [owner] = await ethers.getSigners()
+		await myNFT.mintNFT(owner.address, metaDataURI)
+		await nftMarketV3.listAsCollateral(myNFT.address, 1)
+		await nftMarketV3.setOwner(owner.address)
+
+		await nftMarketV3.setBaseAPRPrice(priceOrder)
+
+		expect(await nftMarketV3.getBaseAPRPrice()).to.equal(priceOrder)
+	})
+
+	it("test set invalid base price for collateral ID", async function () {
+		const [owner] = await ethers.getSigners()
+		await myNFT.mintNFT(owner.address, metaDataURI)
+		await nftMarketV3.listAsCollateral(myNFT.address, 1)
+		await nftMarketV3.setOwner(owner.address)
+
+		await expect(nftMarketV3.setBaseAPRPrice(-1)).to.be.reverted
+	})
+
+	it("test set  rewards token", async function () {
+		const [owner] = await ethers.getSigners()
+		await myNFT.mintNFT(owner.address, metaDataURI)
+		await nftMarketV3.listAsCollateral(myNFT.address, 1)
+		await nftMarketV3.setOwner(owner.address)
+
+		await nftMarketV3.setRewardsToken(tokenStake.address)
+
+		expect(await nftMarketV3.getRewardsToken()).to.equal(tokenStake.address)
+	})
+
+	it("Set owner", async function () {
+		const [owner, add1] = await ethers.getSigners()
+		await nftMarketV3.setOwner(add1.address)
+		expect(await nftMarketV3.getOwner()).to.equal(add1.address)
+	})
+
+	it("Set owner twice", async function () {
+		const [owner, add1, add2] = await ethers.getSigners()
+		await nftMarketV3.setOwner(add1.address)
+		await expect(nftMarketV3.setOwner(add2.address)).to.be.reverted
+	})
+
+	it("Staking NFT", async function () {
+		const [owner] = await ethers.getSigners()
+		await myNFT.mintNFT(owner.address, metaDataURI)
+		await nftMarketV3.listAsCollateral(myNFT.address, 1)
+		await nftMarketV3.setOwner(owner.address)
+		await nftMarketV3.setBaseAPRPrice(priceOrder)
+		await nftMarketV3.setRewardsToken(tokenStake.address)
+		await nftMarketV3.setHashrate(0, 15)
+		await myNFT.setApprovalForAll(nftMarketV3.address, true)
+		await nftMarketV3.stake(0)
+		expect(await myNFT.ownerOf(1)).to.equal(nftMarketV3.address)
+	})
+
+	it("Staking not owner NFT", async function () {
+		const [owner, add1] = await ethers.getSigners()
+		await myNFT.mintNFT(owner.address, metaDataURI)
+		await nftMarketV3.listAsCollateral(myNFT.address, 1)
+		await expect(nftMarketV3.connect(add1).stake(0)).to.be.reverted
+	})
+
+	it("Staking not owner approve NFT", async function () {
+		const [owner] = await ethers.getSigners()
+		await myNFT.mintNFT(owner.address, metaDataURI)
+		await nftMarketV3.listAsCollateral(myNFT.address, 1)
+		await nftMarketV3.setOwner(owner.address)
+		await nftMarketV3.setBaseAPRPrice(priceOrder)
+		await nftMarketV3.setRewardsToken(tokenStake.address)
+		await nftMarketV3.setHashrate(0, 15)
+		await expect(nftMarketV3.stake(0)).to.be.reverted
+	})
+
+	it("UnStaking NFT", async function () {
+		const [owner] = await ethers.getSigners()
+		await myNFT.mintNFT(owner.address, metaDataURI)
+		await nftMarketV3.listAsCollateral(myNFT.address, 1)
+		await nftMarketV3.setOwner(owner.address)
+		await nftMarketV3.setBaseAPRPrice(priceOrder)
+		await nftMarketV3.setRewardsToken(tokenStake.address)
+		await nftMarketV3.setHashrate(0, 15)
+		await myNFT.setApprovalForAll(nftMarketV3.address, true)
+		await nftMarketV3.stake(0)
+		await nftMarketV3.unStake(0)
+		expect(await myNFT.ownerOf(1)).to.equal(owner.address)
+	})
+
+	it("UnStaking invalid NFT", async function () {
+		const [owner] = await ethers.getSigners()
+		await expect(nftMarketV3.unStake(0)).to.be.reverted
 	})
 })

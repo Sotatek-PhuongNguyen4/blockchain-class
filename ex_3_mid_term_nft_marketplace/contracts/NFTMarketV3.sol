@@ -1,7 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/access/Ownable.sol";
+import "hardhat/console.sol";
+
 
 interface IERC721 {
     function ownerOf(uint256 tokenId) external view returns (address owner);
@@ -34,7 +35,7 @@ contract NFTMarketV3 {
     uint256 fee;
 
     // v3 variable state
-    address private _owner;
+    address _owner;
     struct NFTCollateral {
         address owner;
         address collectionAddress;
@@ -107,8 +108,13 @@ contract NFTMarketV3 {
 
 
     // v3 function
-    function initialize() public {
-        _owner = msg.sender;
+    function setOwner(address _address) public {
+        require(_owner == address(0), "Owner to be set have to zero address");
+        _owner = _address;
+    }
+
+    function getOwner() view public returns(address) {
+        return _owner;
     }
 
     modifier onlyOwner() {
@@ -120,8 +126,8 @@ contract NFTMarketV3 {
         return collateralCounter;
     } 
 
-    function getNFTCollateral(uint collateralId) view public returns (NFTCollateral memory) {
-        return listNFTCollaterals[collateralId];
+    function getNFTCollateral(uint256 _collateralId) view public returns (NFTCollateral memory) {
+        return listNFTCollaterals[_collateralId];
     }
 
     function listAsCollateral(address _collectionAddress, uint256 _nftID) public returns(uint256) {
@@ -134,33 +140,42 @@ contract NFTMarketV3 {
         return  collateralCounter - 1;
     }
 
-    function setHashrate(uint256 _collateralID, uint256 _hashrate) view public onlyOwner {
+    function setHashrate(uint256 _collateralID, uint256 _hashrate) public onlyOwner {
         require(_hashrate > 0, "Hashrate have to greater than zero");
-        NFTCollateral memory nftCollateral = listNFTCollaterals[_collateralID];
+        NFTCollateral storage nftCollateral = listNFTCollaterals[_collateralID];
         nftCollateral.hashrate = _hashrate;
     }
 
     function setBaseAPRPrice(uint256 _price) public onlyOwner {
+        require(_price > 0, "base APR price have to greater than 0");
         baseAPRPrice = _price;
+    }
+
+    function getBaseAPRPrice() view public returns (uint256) {
+        return baseAPRPrice;
     }
 
     function setRewardsToken(address _tokenAddress) public onlyOwner {
         rewardsToken = _tokenAddress;
     }
 
-    function stake(uint256 _collateralID) view public {
+    function getRewardsToken() public view returns (address) {
+        return rewardsToken;
+    }
+
+    function stake(uint256 _collateralID) public {
         // require collateralID suitable
-        NFTCollateral memory nftCollateral = listNFTCollaterals[_collateralID];
-        require(nftCollateral.hashrate > 0, "Collateral ID is invalid");
+        NFTCollateral storage nftCollateral = listNFTCollaterals[_collateralID];
         // require msg.sender is onwer of NFT
         require(IERC721(nftCollateral.collectionAddress).ownerOf(nftCollateral.nftID) == msg.sender, "NFT only stake by it owner");
+        require(IERC721(nftCollateral.collectionAddress).isApprovedForAll(msg.sender, address(this)), "NFT have to approve for marketplace");
+        // delegate call to transfer NFT to nftMarketplace
+        IERC721(nftCollateral.collectionAddress).transferFrom(msg.sender, address(this), nftCollateral.nftID);
         nftCollateral.lastStakingTime = block.timestamp;
         nftCollateral.isStaking = true;
     }
 
     function unStake(uint256 _collateralID) public {
-        // require baseAPRPrice is greater than 0
-        require(baseAPRPrice > 0, "base APR price have to greater than 0");
          // require collateralID suitable
         NFTCollateral memory nftCollateral = listNFTCollaterals[_collateralID];
         require(nftCollateral.hashrate > 0, "Collateral ID is invalid");
